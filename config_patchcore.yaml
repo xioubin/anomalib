@@ -31,24 +31,14 @@ dataset:
       random_tile_count: 16
 
 model:
-  name: cflow
+  name: patchcore
   backbone: wide_resnet50_2
   pre_trained: true
   layers:
     - layer2
     - layer3
-    - layer4
-  decoder: freia-cflow
-  condition_vector: 128
-  coupling_blocks: 8
-  clamp_alpha: 1.9
-  fiber_batch_size: 64
-  permute_soft: false
-  lr: 0.0001
-  early_stopping:
-    patience: 2
-    metric: image_AUROC
-    mode: max
+  coreset_sampling_ratio: 0.1
+  num_neighbors: 9
   normalization_method: min_max # options: [null, min_max, cdf]
 
 metrics:
