@@ -172,3 +172,5 @@ docs/source/_build/
 # logs
 wandb/
 lightning_logs/
+
+*.ckpt
